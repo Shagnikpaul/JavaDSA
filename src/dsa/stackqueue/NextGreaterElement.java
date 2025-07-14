@@ -19,7 +19,7 @@ public class NextGreaterElement {
         int ans[] = new int[nums2.length];
 
         for (int i = nums2.length - 1; i >= 0; i--) {
-            while (!st.isEmpty() && st.peek() <= nums2[i]) {
+            while (!st.isEmpty() && st.peek() >= nums2[i]) {
                 st.pop();
             }
 
