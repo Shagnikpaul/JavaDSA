@@ -1,10 +1,6 @@
 package dsa.greedy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.SortedSet;
 
 public class InsertInterval {
     public static void main(String[] args) {
