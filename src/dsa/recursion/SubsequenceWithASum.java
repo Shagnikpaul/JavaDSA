@@ -13,6 +13,28 @@ import java.util.ArrayList;
 public class SubsequenceWithASum {
 
 
+    public static int countSequencesWithSum(int ind, int[] arr, ArrayList<Integer> l, int currentSum, int targetSum) {
+        if (ind >= arr.length) {
+            if (currentSum == targetSum) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        if (currentSum == targetSum) {
+            return 1;
+        } else {
+            l.add(arr[ind]);
+            currentSum += arr[ind];
+            int lef = countSequencesWithSum(ind + 1, arr, l, currentSum, targetSum);
+            currentSum -= arr[ind];
+            l.remove(l.size() - 1);
+            int ri = countSequencesWithSum(ind + 1, arr, l, currentSum, targetSum);
+            return lef + ri;
+        }
+    }
+
+
     public static boolean findSubseq(int ind, int[] arr, ArrayList<Integer> l, int currentSum, int targetSum) {
         if (ind >= arr.length) {
             if (currentSum == targetSum) {
@@ -44,6 +66,6 @@ public class SubsequenceWithASum {
         int[] arr = {1, 2, 1};
         int targetSum = 2;
         ArrayList<Integer> l = new ArrayList<>();
-        findSubseq(0, arr, l, 0, targetSum);
+        System.out.printf("Total subsequences with sum of %d = %d", targetSum, countSequencesWithSum(0, arr, l, 0, targetSum));
     }
 }
