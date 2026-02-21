@@ -13,7 +13,6 @@ public class FloydWarshall {
         for (int k = 0; k < n; k++) {           // intermediate vertex
             for (int i = 0; i < n; i++) {       // source vertex
                 for (int j = 0; j < n; j++) {   // destination vertex
-
                     matrix[i][j] = Math.min(matrix[i][j], matrix[i][k] + matrix[k][j]);
                 }
             }
