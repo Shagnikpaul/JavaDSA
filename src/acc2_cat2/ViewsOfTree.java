@@ -198,9 +198,9 @@ public class ViewsOfTree {
             return;
         }
         if (root.right != null) {
-            leftBoun(root.right, l);
+            rightBoun(root.right, l);
         } else {
-            leftBoun(root.left, l);
+            rightBoun(root.left, l);
         }
         l.add(root);
     }

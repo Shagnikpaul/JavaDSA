@@ -1,9 +1,9 @@
 package acc2_cat2;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class HeapSort {
-
 
     public void heapify(int i, int n, int[] arr) {
         int largest = i;
@@ -47,6 +47,9 @@ public class HeapSort {
 
     public static void main(String[] args) {
         int[] arr = {6, 4, 3, 1, 0, 7, 2};
+        // alternative
+        PriorityQueue<Integer> p = new PriorityQueue<>();
+
         new HeapSort().sort(arr);
         System.out.println("Sorted : " + Arrays.toString(arr));
     }

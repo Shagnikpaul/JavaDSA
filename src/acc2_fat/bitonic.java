@@ -3,27 +3,36 @@ package acc2_fat;
 public class bitonic {
 
     public static int lis(int[] arr, int i, int l) {
-        if (i == arr.length)
+        if (i < 0) {
             return 0;
-        if (arr[i] >= l) {
-            return Math.max(lis(arr, i + 1, arr[i]), lis(arr, i + 1, l));
-        } else {
-            return lis(arr, i + 1, l);
         }
+        int not = lis(arr, i - 1, l);
+        int take = 0;
+        if (l == -1 || arr[i] < l) {
+            take = 1 + lis(arr, i - 1, arr[i]);
+        }
+        return Math.max(not, take);
     }
 
-    public static void main(String[] args) {
-        int[] lisdp = new int[5]; // sample length
-        int[] ldsdp = new int[5]; // sample length
-        int[] arr = new int[5]; // assume 5 elelmetns
-        lis(arr, 0, -1); // assume passing lisdp
-        //reverse array
-        lis(arr, 0, -1); // assume passing ldsdp
-        // now cal longest len
-        for (int i = 0; i < 5; i++) {
-            /*
-                lisdp[i]+ldsdp[i]-1 (max)
-             */
+    public static int lds(int[] arr, int i, int l) {
+        if (i == arr.length) {
+            return 0;
         }
+        int not = lds(arr, i + 1, l);
+        int take = 0;
+        if (l == -1 || arr[i] < l) {
+            take = 1 + lds(arr, i + 1, arr[i]);
+        }
+        return Math.max(not, take);
+    }
+
+
+    public static void main(String[] args) {
+        int[] ar = {1, 11, 2, 10, 4, 5, 2, 1};
+        int max = -1;
+        for (int i = 0; i < ar.length; i++) {
+            max = Math.max(max, (lis(ar, i, -1) + lds(ar, i, -1) - 1));
+        }
+        System.out.println("max : " + max);
     }
 }

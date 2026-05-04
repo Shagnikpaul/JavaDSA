@@ -30,7 +30,7 @@ public class BellmanFord {
         dist[0] = 0;
 
         for (int i = 0; i < graph.length - 1; i++) {
-            for (int n : adj.keySet()) {
+            for (int n : adj.keySet()) { // basically all the nodes... 0 to n-1 inclusive
                 for (int edge : adj.get(n)) {
                     if (dist[n] != Integer.MAX_VALUE && (dist[n] + graph[n][edge] < dist[edge])) {
                         dist[edge] = dist[n] + graph[n][edge];
