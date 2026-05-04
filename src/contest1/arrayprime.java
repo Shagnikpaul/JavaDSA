@@ -1,4 +1,3 @@
-package contest1;
 
 import java.util.Arrays;
 
