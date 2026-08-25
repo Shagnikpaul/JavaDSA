@@ -12,8 +12,9 @@ public class BellmanFord {
                 {0, 1, 0, 5},
                 {0, 0, 0, 0}
         };
-
+        
         HashMap<Integer, ArrayList<Integer>> adj = new HashMap<>();
+        
         for (int i = 0; i < graph.length; i++) {
             adj.put(i, new ArrayList<>());
         }
